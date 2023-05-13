@@ -1,0 +1,29 @@
+spring:
+  application:
+    name: spring-cloud-config-client
+  devtools:
+    livereload:
+      port: 35730
+  config:
+    import: "optional:configserver:http://localhost:8080"
+  cloud:
+    bus:
+      enabled: true
+      refresh:
+        enabled: true
+  kafka:
+    bootstrap-servers: localhost:9092
+  profiles:
+    active: development
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      show-details: always
+
+server:
+  port: 8088
